@@ -1,0 +1,13 @@
+#! /bin/bash
+
+# Count the pdf all pages
+# Notes: You need the pdftk tool
+
+total_pages=0
+
+for f in *.pdf; do
+	pages=$(pdftk $f dump_data | grep NumberOfPages | cut -d: -f2)
+	total_pages=$((total_pages + pages))
+done
+
+echo $total_pages
