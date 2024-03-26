@@ -1,0 +1,3 @@
+#! /bin/bash
+
+pdftk $1 cat $2-$3 output $4

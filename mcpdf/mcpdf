@@ -5,7 +5,7 @@
 
 total_pages=0
 
-for f in *.pdf; do
+for f in "$@"; do
 	pages=$(pdftk $f dump_data | grep NumberOfPages | cut -d: -f2)
 	total_pages=$((total_pages + pages))
 done
